@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+</head>
+<style>
+@keyframes color {
+	0% {
+		color: #F0C;	
+	}
+	10% {
+		color: #F00;	
+	}
+	20% {
+		color: #FF0;	
+	}
+	30% {
+		color: #F39;	
+	}
+	40% {
+		color: #9F6;	
+	}
+	50% {
+		color: #60C;	
+	}
+	60% {
+		color: #90F;	
+	}
+	70% {
+		color: #F3C;	
+	}
+	80% {
+		color: #039;	
+	}
+	90% {
+		color: #96C;	
+	}
+	100% {
+		color: #F0C;	
+	}	
+}
+@keyframes show {
+	0% {
+		transform: rotateX(180deg);
+		opacity: 0;
+	}
+	50% {
+		transform: rotateX(-20deg);
+		opacity: 1;
+	}
+	60% {
+		transform: rotateX(18deg);
+		opacity: 1;
+	}
+	70% {
+		transform: rotateX(-15deg);
+		opacity: 1;
+	}
+	80% {
+		transform: rotateX(10deg);
+		opacity: 1;
+	}
+	90% {
+		transform: rotateX(-8deg);
+		opacity: 1;
+	}
+	100% {
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+}
+@keyframes hide {
+	0% {
+		transform: rotateX(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: rotateX(-180deg);
+		opacity: 0;
+	}
+}
+.wrap {
+	width: 600px;
+	height: 300px;
+	position: relative;
+	margin: 20px auto;
+	perspective: 800px;
+	transform-style: preserve-3d;
+}
+img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 600px;
+	height: 300px;
+	transform-origin: bottom;
+	transform: rotateX(-180deg);
+	opacity: 0;
+}
+input {
+	outline: none;
+	position: absolute;;
+	top: 120px;
+	width: 60px;
+	height: 60px;
+	font: 20px/50px "微软雅黑";
+	border-radius: 50%;
+	background:#FF3;
+	color: #C0C;
+	z-index: 2;
+}
+input:nth-of-type(1) {
+	left: -80px;
+}
+input:nth-of-type(2) {
+	right: -80px;
+}
+.show {
+	transform: rotateX(0deg);
+	opacity: 1;
+	animation: 1.5s show;
+}
+.hide {
+	transform: rotateX(-180deg);
+	opacity: 0;
+	animation: 1s hide;
+}
+span {
+	position: absolute;
+	height: 600px;
+	width: 20px;
+	top: 0;
+	font: 20px/30px "微软雅黑";
+	color: #F0C;
+	animation: 5s color linear infinite;
+}
+span:nth-of-type(1) {
+	left: -150px;
+}
+span:nth-of-type(2){
+	right: -150px;
+}
+h2 {
+	width: 150px;
+	margin: 0 auto;
+	font: 30px/40px "宋体";
+	text-align: center;
+	color: #F00;
+}
+</style>
+<script>
+	window.onload = function () {
+		var wrap = document.querySelector('.wrap');
+		var img = document.querySelectorAll('img');
+		var input = document.querySelectorAll('input');
+		var n = 0;
+
+		input[0].onclick = function () {
+			img[n].className = 'hide';
+			n--;
+			if ( n < 0 ) {
+				n = img.length - 1;
+			}
+			img[n].className = 'show';
+		};
+		input[1].onclick = function () {
+			img[n].className = 'hide';
+			n++;
+			if ( n > img.length - 1 ) {
+				n = 0;
+			}
+			img[n].className = 'show';
+		};
+	};
+</script>
+<body>
+<h2>
+	我爱你
+</h2>
+<div class="wrap">
+	<span>得成比目何辞死</span>
+	<span>只羡鸳鸯不羡仙</span>
+	<input type="button" value="悦">
+	<img src="新建文件夹/图片2016-05-21_21-19-39-000_mh1463837959190.jpg" class="show">
+	<img src="新建文件夹/2015-08-01_22-34-15-000.jpg">
+	<img src="新建文件夹/2016-06-30_22-23-42-000.jpg">
+	<img src="新建文件夹/2016-08-08_22-28-43-000.jpg">
+	<img src="新建文件夹/2016-08-13_23-22-01-000.jpg">
+	<img src="新建文件夹/2016-09-16_21-50-06-000.jpg">
+	<img src="新建文件夹/QQ图片20160830010029.jpg">
+	<img src="新建文件夹/QQ图片20160906222618.jpg">
+	<img src="新建文件夹/QQ图片20160914215446.jpg">
+	<input type="button" value="悦">
+</div>
+</body>
+</html>
